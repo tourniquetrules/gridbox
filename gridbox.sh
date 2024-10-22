@@ -35,6 +35,6 @@ echo "./t-rex -a '$algorithm' -o '$pool' -u '$wallet' -p '$password'" >> "$outpu
 chmod +x "$output_file"
 
 # Inform the user that the file has been created
-echo "The file '$output_file' has been created. Type '$output_file' to being"
+echo "The file '$output_file' has been created. Type '$output_file' to begin"
 
 
