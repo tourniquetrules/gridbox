@@ -1,3 +1,5 @@
+#!/bin/bash
+
 sudo apt update &&
 sudo apt install nano zip -y &&
 wget https://github.com/trexminer/T-Rex/releases/download/0.26.8/t-rex-0.26.8-linux.tar.gz
