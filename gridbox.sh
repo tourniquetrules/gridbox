@@ -1,9 +1,8 @@
 #!/bin/bash
 sudo apt update &&
-sudo apt install nano zip curl -y &&
+sudo apt install nano zip curl xz-utils -y &&
 mkdir -p miners/{trex,lolMiner,ccminer,rigel,wildrig,xmrig,cpuminer} &&
 wget -P miners/ccminer https://github.com/1NF1N18Y/ccminer-Points/releases/download/v0.1-beta/test-release.zip &&
-unzip test-release.zip &&
 unzip miners/ccminer/test-release.zip -d miners/ccminer &&
 chmod +x miners/ccminer/ccminer &&
 wget -P miners/lolMiner https://github.com/Lolliedieb/lolMiner-releases/releases/download/1.91/lolMiner_v1.91_Lin64.tar.gz &&
