@@ -1,42 +1,18 @@
 #!/bin/bash
-
+sudo -i &&
 sudo apt update &&
-sudo apt install nano zip -y &&
-wget https://github.com/trexminer/T-Rex/releases/download/0.26.8/t-rex-0.26.8-linux.tar.gz
-tar -xzvf t-rex-0.26.8-linux.tar.gz &&
-#!/bin/bash
-
-# Ask for the name of the coin
-echo "Please enter the name of the coin:"
-read coin_name
-
-# Ask for the algorithm
-echo "Please enter the algorithm:"
-read algorithm
-
-# Ask for the mining pool address
-echo "Please enter the pool address:"
-read pool
-
-# Ask for the wallet address
-echo "Please enter your wallet address:"
-read wallet
-
-# Ask for the password (usually optional in mining pools)
-echo "Please enter the password (if applicable, otherwise press enter):"
-read password
-
-# Set the output file name to include the coin name
-output_file="mine_${coin_name}.sh"
-
-# Write the responses to the output file with the mining command format
-echo "#!/bin/bash" > "$output_file"
-echo "./t-rex -a '$algorithm' -o '$pool' -u '$wallet' -p '$password'" >> "$output_file"
-
-# Make the output file executable
-chmod +x "$output_file"
-
-# Inform the user that the file has been created
-echo "The file '$output_file' has been created. Type '$output_file' to begin"
-
-
+sudo apt install nano zip curl -y &&
+mkdir -p miners/{trex,lolMiner,ccminer,rigel,wildrig} &&
+wget -P miners/ccminer https://github.com/1NF1N18Y/ccminer-Points/releases/download/v0.1-beta/test-release.zip &&
+unzip test-release.zip &&
+unzip miners/ccminer/test-release.zip -d miners/ccminer &&
+chmod +x miners/ccminer/ccminer &&
+wget -P miners/lolMiner https://github.com/Lolliedieb/lolMiner-releases/releases/download/1.91/lolMiner_v1.91_Lin64.tar.gz &&
+tar -xzvf miners/lolMiner/lolMiner_v1.91_Lin64.tar.gz --strip-components=1 -C miners/lolMiner &&
+wget -P miners/trex https://github.com/trexminer/T-Rex/releases/download/0.26.8/t-rex-0.26.8-linux.tar.gz &&
+tar -xzvf miners/trex/t-rex-0.26.8-linux.tar.gz -C miners/trex &&
+wget -P miners/rigel https://github.com/rigelminer/rigel/releases/download/1.19.1/rigel-1.19.1-linux.tar.gz &&
+tar -xzvf miners/rigel/rigel-1.19.1-linux.tar.gz --strip-component=1 -C miners/rigel &&
+wget -P miners/wildrig https://github.com/andru-kun/wildrig-multi/releases/download/0.40.8/wildrig-multi-linux-0.40.8.tar.xz &&
+xz -d miners/wildrig/wildrig-multi-linux-0.40.8.tar.xz &&
+tar -xf miners/wildrig/wildrig-multi-linux-0.40.8.tar -C miners/wildrig
