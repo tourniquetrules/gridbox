@@ -1,5 +1,4 @@
 #!/bin/bash
-sudo -i &&
 sudo apt update &&
 sudo apt install nano zip curl -y &&
 mkdir -p miners/{trex,lolMiner,ccminer,rigel,wildrig,xmrig,cpuminer} &&
